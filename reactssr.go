@@ -45,8 +45,3 @@ func NewServerSideRenderer(path string) (*Renderer, error) {
 func (r *Renderer) Render() (string, error) {
 	return r.render()
 }
-
-// RenderFast renders the provided path to HTML.
-func (r *Renderer) RenderFast() (string, error) {
-	return r.renderFast()
-}

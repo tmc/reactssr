@@ -50,31 +50,3 @@ func BenchmarkRender(b *testing.B) {
 		}
 	}
 }
-
-func BenchmarkRender2(b *testing.B) {
-	r, err := reactssr.NewServerSideRenderer("./testdata/test-app-1/build/out.js")
-	if err != nil {
-		b.Fatal(err)
-	}
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		_, err := r.Render()
-		if err != nil {
-			b.Fatal(err)
-		}
-	}
-}
-
-func BenchmarkRenderFast(b *testing.B) {
-	r, err := reactssr.NewServerSideRenderer("./testdata/test-app-1/build/out.js")
-	if err != nil {
-		b.Fatal(err)
-	}
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		_, err := r.RenderFast()
-		if err != nil {
-			b.Fatal(err)
-		}
-	}
-}

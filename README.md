@@ -9,7 +9,7 @@ A library to perform Server Side Rendering of React apps.
 
 ## Example usage
 
-Given a bundle produced from an additional entrypoint to your application such as [./js/index.ssr.jsx](./js/index.ssr.jsx:
+Given a bundle produced from an additional entrypoint to your application such as [./js/index.ssr.jsx](./js/index.ssr.jsx):
 
 ```jsx
 
@@ -31,16 +31,15 @@ reactssr.render(AppOutput);
 This file should be bundled, for exaple, wwith [esbuild](https://esbuild.github.io/) as so:
 
 ```bash
-    npx esbuild \
-       src/index.ssr.jsx \
-       --inject:src/react-shim.js \
-       --bundle \
-       --sourcemap \
-       --outfile=build/out.js \
-       --loader:.js=jsx \
-       --loader:.svg=text \
-       --define:process.env.NODE_ENV=\"production\"
-)
+npx esbuild \
+   src/index.ssr.jsx \
+   --inject:src/react-shim.js \
+   --bundle \
+   --sourcemap \
+   --outfile=build/out.js \
+   --loader:.js=jsx \
+   --loader:.svg=text \
+   --define:process.env.NODE_ENV=\"production\"
 ```
 
 Then the following code will execute the bundle and load the results into a Go variable (for serving
@@ -61,7 +60,11 @@ global Javascript namespace.
 In this example:
 
 ```js
-reactssr.render(AppOutput);
+reactssr.render(Server.renderToString(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+));
 ```
 
 `reactssr.render` is a Go callback which allows the Javascript execution environment to pass
