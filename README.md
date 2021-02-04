@@ -1,6 +1,6 @@
 # reactssr
 
-A library to perform Server Side Rendering of React apps.
+A Go package to perform Server Side Rendering of React apps.
 
 [![Project status](https://img.shields.io/github/release/tmc/reactssr.svg?style=flat-square)](https://github.com/tmc/reactssr/releases/latest)
 [![Build Status](https://github.com/tmc/reactssr/workflows/test/badge.svg)](https://github.com/tmc/reactssr/actions?query=workflow%3Atest)
@@ -9,7 +9,7 @@ A library to perform Server Side Rendering of React apps.
 
 ## Example usage
 
-Given a bundle produced from an additional entrypoint to your application such as [./js/index.ssr.jsx](./js/index.ssr.jsx):
+Given a bundle produced from an additional entrypoint to your application such as [js/index.ssr.jsx](./js/index.ssr.jsx):
 
 ```jsx
 
@@ -71,4 +71,22 @@ reactssr.render(Server.renderToString(
 the rendered HTML and CSS between runtimes.
 
 
+## Performance
 
+This package includes benchmarks which are run in CI: [reactssr_test.go](./reactssr_test.go).
+
+[Recent performance results](https://github.com/tmc/reactssr/runs/1828170002?check_suite_focus=true)
+
+```sh
+go test -v -run=XXX -benchmem -bench=.*
+goos: linux
+goarch: amd64
+pkg: github.com/tmc/reactssr
+BenchmarkRender
+BenchmarkRender-2    	     464	   5855720 ns/op	    3459 B/op	      19 allocs/op
+PASS
+```
+
+This indicates that it takes just under `6 milliconds` to render the current default output 
+from [create-react-app](https://github.com/facebook/create-react-app). This is without any specific 
+work towards optimizing the implementation and this output is easily cachable.
