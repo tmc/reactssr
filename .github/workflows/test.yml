@@ -15,5 +15,7 @@ jobs:
         go-version: ${{ matrix.go-version }}
     - name: Check out code
       uses: actions/checkout@v2
+    - name: Run esbuild
+      run: ./scripts/setup-test-cra-app.sh
     - name: Test
       run: go test -race ./...
