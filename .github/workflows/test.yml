@@ -19,4 +19,8 @@ jobs:
     - name: Run esbuild
       run: bash -x ./scripts/setup-test-cra-app.sh
     - name: Test
+      run: go test -v ./...
+    - name: Test with Race Detector
       run: go test -race ./...
+    - name: Benchmarks
+      run: go test -v -run=XXX -benchmem -bench=.*
