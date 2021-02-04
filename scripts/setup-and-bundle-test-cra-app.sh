@@ -1,5 +1,5 @@
 #!/bin/bash
-# setup-ttest-cra-app.sh - creates a fresh create-react-app app.
+# setup-and-bundle-cra-app.sh - creates a fresh create-react-app app.
 
 if [ "${1:-}" == "clean" ]; then
    echo "cleaning cra output"

@@ -17,7 +17,7 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
     - name: Run esbuild
-      run: bash -x ./scripts/setup-test-cra-app.sh
+      run: bash -x ./scripts/setup-and-bundle-cra-app.sh
     - name: Test
       run: go test -v ./...
     - name: Test with Race Detector
