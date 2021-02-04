@@ -16,6 +16,6 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
     - name: Run esbuild
-      run: ./scripts/setup-test-cra-app.sh
+      run: bash -x ./scripts/setup-test-cra-app.sh
     - name: Test
       run: go test -race ./...
