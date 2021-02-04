@@ -5,13 +5,14 @@ jobs:
   test:
     strategy:
       matrix:
-        go-version: [1.14.x, 1.15.x]
+        go-version: [1.15.x, 1.16.0-rc1]
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
     - name: Install Go
       uses: actions/setup-go@v2
       with:
+        stable: '!contains(${{ matrix.go-version }}, "beta") && !contains(${{ matrix.go-version }}, "rc")'
         go-version: ${{ matrix.go-version }}
     - name: Check out code
       uses: actions/checkout@v2
