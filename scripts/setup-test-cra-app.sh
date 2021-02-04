@@ -1,9 +1,6 @@
 #!/bin/bash
 # setup-ttest-cra-app.sh - creates a fresh create-react-app app.
 
-# Check for and install npm dependencies, if not present.
-command -v esbuild > /dev/null || npm install -g esbuild
-
 if [ "${1:-}" == "clean" ]; then
    echo "cleaning cra output"
    rm -rf ./testdata/test-app-1
@@ -17,7 +14,8 @@ cp ./js/react-shim.js ./testdata/test-app-1/src/
 
 (
     cd ./testdata/test-app-1 || exit
-    esbuild \
+    test -d node_modules/react || yarn
+    npx esbuild \
        src/index.ssr.jsx \
        --inject:src/react-shim.js \
        --bundle \
