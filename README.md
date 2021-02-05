@@ -28,7 +28,7 @@ const AppOutput = Server.renderToString(
 reactssr.render(AppOutput);
 ```
 
-This file should be bundled, for exaple, wwith [esbuild](https://esbuild.github.io/) as so:
+This file should be bundled, for exaple, with [esbuild](https://esbuild.github.io/) as so:
 
 ```bash
 npx esbuild \
