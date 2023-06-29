@@ -9,12 +9,12 @@ jobs:
   test:
     strategy:
       matrix:
-        go-version: [1.15.x, 1.16.0-rc1]
+        go-version: [oldstable, stable]
         os: [ubuntu-latest, macos-latest] # TODO(tmc): enable windows builds
     runs-on: ${{ matrix.os }}
     steps:
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v4
       with:
         stable: '!contains(${{ matrix.go-version }}, "beta") && !contains(${{ matrix.go-version }}, "rc")'
         go-version: ${{ matrix.go-version }}
