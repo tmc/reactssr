@@ -3,7 +3,7 @@
 A Go package to perform Server Side Rendering of React apps.
 
 [![Project status](https://img.shields.io/github/release/tmc/reactssr.svg?style=flat-square)](https://github.com/tmc/reactssr/releases/latest)
-[![Build Status](https://github.com/tmc/reactssr/workflows/test/badge.svg)](https://github.com/tmc/reactssr/actions?query=workflow%3Atest)
+[![Build Status](https://github.com/tmc/reactssr/actions/workflows/test.yml/badge.svg)](https://github.com/tmc/reactssr/actions/workflows/test.yml)
 [![Go Report Card](https://goreportcard.com/badge/tmc/reactssr?cache=0)](https://goreportcard.com/report/tmc/reactssr)
 [![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/github.com/tmc/reactssr)
 
