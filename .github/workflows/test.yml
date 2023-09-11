@@ -19,7 +19,7 @@ jobs:
         stable: '!contains(${{ matrix.go-version }}, "beta") && !contains(${{ matrix.go-version }}, "rc")'
         go-version: ${{ matrix.go-version }}
     - name: Check out code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Run esbuild
       run: bash -x ./scripts/setup-and-bundle-test-cra-app.sh
     - name: Test
